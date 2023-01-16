@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Game from './pages/Game';
 import Config from './pages/Config';
 import Feedback from './pages/Feedback';
+import Ranking from './pages/Ranking';
 
 class App extends Component {
   render() {
@@ -28,6 +29,12 @@ class App extends Component {
             path="/feedback"
             render={
               (props) => (<Feedback { ...props } />)
+            }
+          />
+          <Route
+            path="/ranking"
+            render={
+              (props) => (<Ranking { ...props } />)
             }
           />
           <Route path="/config" component={ Config } />

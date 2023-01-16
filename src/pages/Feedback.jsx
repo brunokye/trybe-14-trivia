@@ -3,13 +3,25 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 
-class Feedback extends Component {
+class FeedBack extends Component {
+  gotToRanking = () => {
+    const { history } = this.props;
+    history.push('/ranking');
+  };
+
   render() {
     const { assertions } = this.props;
     const numberThree = 3;
     return (
       <div>
         <Header />
+        <button
+          type="button"
+          onClick={ this.gotToRanking }
+          data-testid="btn-ranking"
+        >
+          Ranking
+        </button>
         <span data-testid="feedback-text">
           { assertions >= numberThree ? <p>Well Done!</p> : <p>Could be better...</p> }
         </span>
@@ -26,4 +38,8 @@ const mapStateToProps = (state) => ({
   assertions: state.player.assertions,
 });
 
-export default connect(mapStateToProps)(Feedback);
+FeedBack.propTypes = {
+  history: PropTypes.func,
+}.isRequired;
+
+export default connect(mapStateToProps)(FeedBack);
