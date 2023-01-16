@@ -1,4 +1,4 @@
-import { SAVE_PLAYER_INFO, SCORE } from '../actions/actionTypes';
+import { SAVE_PLAYER_INFO, SCORE, RESET_SCORE } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   name: '',
@@ -21,6 +21,11 @@ const player = (state = INITIAL_STATE, action) => {
       score: state.score + action.payload,
     };
   }
+  case RESET_SCORE:
+    return {
+      ...state,
+      score: 0,
+    };
   default:
     return state;
   }
