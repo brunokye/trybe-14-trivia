@@ -1,7 +1,7 @@
 import {
   SAVE_PLAYER_INFO, SCORE,
   RESET_SCORE,
-  ADD_ASSERTIONS
+  ADD_ASSERTIONS,
 } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
