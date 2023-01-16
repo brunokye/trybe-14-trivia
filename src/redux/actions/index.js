@@ -12,6 +12,7 @@ export const sumScore = (score) => ({
 
 export const resetScore = () => ({
   type: RESET_SCORE,
+});
 
 export const addAssertions = (payload) => ({
   type: ADD_ASSERTIONS,
