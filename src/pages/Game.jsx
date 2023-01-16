@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import getQuestions from '../services/TriviaAPI/requestQuestions';
-import { sumScore } from '../redux/actions';
+import { sumScore, addAssertions } from '../redux/actions';
 import '../styles/game.css';
 
 const CORRECT_ANSWER = 'correct-answer';
@@ -19,6 +19,7 @@ class Game extends Component {
     timeLeft: 30,
     btnDisabled: false,
     next: false,
+    assertions: 0,
   };
 
   async componentDidMount() {
@@ -78,6 +79,7 @@ class Game extends Component {
     const { dispatch } = this.props;
     const { questions, currentQuestion, timeLeft } = this.state;
     const currentDiffiiculty = questions[currentQuestion].difficulty;
+    let { assertions } = this.state;
 
     const easy = 1;
     const medium = 2;
@@ -94,12 +96,16 @@ class Game extends Component {
       mod = hard;
     }
 
-    console.log(mod);
-
     if (id === 'correct-answer') {
       const score = ten + (timeLeft * mod);
       dispatch(sumScore(score));
+      this.setState({
+        assertions: assertions += 1,
+      });
     }
+
+    dispatch(addAssertions(assertions));
+    console.log(assertions);
 
     const allOptions = document.getElementById('answer-options');
     const options = allOptions.childNodes;

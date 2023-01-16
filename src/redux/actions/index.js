@@ -1,4 +1,4 @@
-import { SAVE_PLAYER_INFO, SCORE, RESET_SCORE } from './actionTypes';
+import { SAVE_PLAYER_INFO, SCORE, RESET_SCORE, ADD_ASSERTIONS } from './actionTypes';
 
 export const savePlayerInfo = (playerInfo) => ({
   type: SAVE_PLAYER_INFO,
@@ -12,4 +12,8 @@ export const sumScore = (score) => ({
 
 export const resetScore = () => ({
   type: RESET_SCORE,
+
+export const addAssertions = (payload) => ({
+  type: ADD_ASSERTIONS,
+  payload,
 });

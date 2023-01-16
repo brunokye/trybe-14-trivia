@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Login from './pages/Login';
 import Game from './pages/Game';
 import Config from './pages/Config';
-import Ranking from './pages/Ranking';
 import Feedback from './pages/Feedback';
+import Ranking from './pages/Ranking';
 
 class App extends Component {
   render() {
@@ -25,21 +25,19 @@ class App extends Component {
               (props) => (<Game { ...props } />)
             }
           />
-          <Route path="/config" component={ Config } />
           <Route
-            exact
             path="/feedback"
             render={
               (props) => (<Feedback { ...props } />)
             }
           />
           <Route
-            exact
             path="/ranking"
             render={
               (props) => (<Ranking { ...props } />)
             }
           />
+          <Route path="/config" component={ Config } />
         </Switch>
       </div>
     );
