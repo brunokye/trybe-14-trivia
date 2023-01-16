@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Login from './pages/Login';
 import Game from './pages/Game';
 import Config from './pages/Config';
+import Feedback from './pages/Feedback';
 
 class App extends Component {
   render() {
@@ -21,6 +22,12 @@ class App extends Component {
             path="/game"
             render={
               (props) => (<Game { ...props } />)
+            }
+          />
+          <Route
+            path="/feedback"
+            render={
+              (props) => (<Feedback { ...props } />)
             }
           />
           <Route path="/config" component={ Config } />
