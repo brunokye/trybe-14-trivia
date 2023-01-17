@@ -42,7 +42,7 @@ class Ranking extends Component {
     const { sortedRanking } = this.state;
     return (
       <section>
-        <h1>Ranking Geral</h1>
+        <h1 data-testid="ranking-title">Ranking Geral</h1>
         <table>
           <thead>
             <tr>
