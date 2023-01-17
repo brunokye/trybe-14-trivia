@@ -141,8 +141,26 @@ class Game extends Component {
     }, () => this.handleTimer());
   };
 
+  handleRankingLocalStorage = () => {
+    console.log(this.props);
+    if (!localStorage.ranking) {
+      const ranking = [];
+      localStorage.setItem('ranking', JSON.stringify(ranking));
+    }
+
+    const { player: { name, gravatarEmail, score } } = this.props;
+    const personalRanking = { name, score, picture: gravatarEmail };
+
+    const ranking = localStorage.getItem('ranking');
+    const editRanking = JSON.parse(ranking);
+    console.log(editRanking);
+    const addInRanking = [...editRanking, personalRanking];
+    localStorage.setItem('ranking', JSON.stringify(addInRanking));
+  };
+
   gotToFeedback = () => {
     const { history } = this.props;
+    this.handleRankingLocalStorage();
     history.push('/feedback');
   };
 
@@ -213,4 +231,8 @@ Game.propTypes = {
   history: PropTypes.func,
 }.isRequired;
 
-export default connect()(Game);
+const mapStateToProps = (state) => ({
+  ...state,
+});
+
+export default connect(mapStateToProps)(Game);

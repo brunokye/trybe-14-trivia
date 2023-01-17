@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { savePlayerInfo } from '../redux/actions';
+import { savePlayerInfo, resetScore } from '../redux/actions';
 import '../styles/login.css';
 
 import getToken from '../services/TriviaAPI/requestToken';
@@ -15,6 +15,11 @@ class Login extends Component {
     loginPage: false,
     gamePage: false,
   };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(resetScore());
+  }
 
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -110,4 +115,8 @@ Login.propTypes = {
   history: PropTypes.func,
 }.isRequired;
 
-export default connect()(Login);
+const mapStateToProps = (state) => ({
+  score: state.player.score,
+});
+
+export default connect(mapStateToProps)(Login);
