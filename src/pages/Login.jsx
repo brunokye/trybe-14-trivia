@@ -115,8 +115,4 @@ Login.propTypes = {
   history: PropTypes.func,
 }.isRequired;
 
-const mapStateToProps = (state) => ({
-  score: state.player.score,
-});
-
-export default connect(mapStateToProps)(Login);
+export default connect()(Login);
