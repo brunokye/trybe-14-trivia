@@ -10,7 +10,7 @@ class Feedback extends Component {
   };
 
   render() {
-    const { assertions } = this.props;
+    const { assertions, score } = this.props;
     const numberThree = 3;
     return (
       <div>
@@ -18,6 +18,8 @@ class Feedback extends Component {
         <span data-testid="feedback-text">
           { assertions >= numberThree ? <p>Well Done!</p> : <p>Could be better...</p> }
         </span>
+        <p data-testid="feedback-total-score">{ score }</p>
+        <p data-testid="feedback-total-question">{ assertions }</p>
         <button
           type="button"
           onClick={ this.gotToRanking }
@@ -36,6 +38,7 @@ Feedback.propTypes = {
 
 const mapStateToProps = (state) => ({
   assertions: state.player.assertions,
+  score: state.player.score,
 });
 
 Feedback.propTypes = {
