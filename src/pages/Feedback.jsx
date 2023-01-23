@@ -9,6 +9,11 @@ class Feedback extends Component {
     history.push('/ranking');
   };
 
+  redirectResetPlay = () => {
+    const { history } = this.props;
+    history.push('/');
+  };
+
   render() {
     const { assertions } = this.props;
     const numberThree = 3;
@@ -24,6 +29,13 @@ class Feedback extends Component {
           data-testid="btn-ranking"
         >
           Ranking
+        </button>
+        <button
+          type="button"
+          data-testid="btn-play-again"
+          onClick={ this.redirectResetPlay }
+        >
+          Play Again
         </button>
       </div>
     );
