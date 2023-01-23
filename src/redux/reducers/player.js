@@ -1,4 +1,8 @@
-import { SAVE_PLAYER_INFO, SCORE, ADD_ASSERTIONS } from '../actions/actionTypes';
+import {
+  SAVE_PLAYER_INFO, SCORE,
+  RESET_SCORE,
+  ADD_ASSERTIONS,
+} from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   name: '',
@@ -21,6 +25,12 @@ const player = (state = INITIAL_STATE, action) => {
       score: state.score + action.payload,
     };
   }
+
+  case RESET_SCORE:
+    return {
+      ...state,
+      score: 0,
+    };
   case ADD_ASSERTIONS: {
     return {
       ...state,
