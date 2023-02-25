@@ -10,10 +10,10 @@ Você deverá desenvolver um jogo de perguntas e respostas baseado no jogo Trivi
 
 ## Projeto
 
-<div align="center" display="inline">
-<img src="https://i.imgur.com/BSvAFI3.png" alt="Login" width="400px" heigth="209px">
-<img src="https://i.imgur.com/BlmVUlG.png" alt="Trivia" width="400px" heigth="209px">
-<img src="https://i.imgur.com/xl5IbHN.png" alt="Ranking" width="400px" heigth="209px">
+<div align="center">
+  <img src="https://i.imgur.com/BSvAFI3.png" alt="Login" width="400px" />
+  <img src="https://i.imgur.com/BlmVUlG.png" alt="Trivia" width="400px" />
+  <img src="https://i.imgur.com/xl5IbHN.png" alt="Ranking" width="400px" />
 </div>
 
 ## Executar Localmente
